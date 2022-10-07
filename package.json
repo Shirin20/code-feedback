@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/Shirin20/studentCode/issues"
   },
-  "homepage": "https://github.com/Shirin20/studentCode#readme"
+  "homepage": "https://github.com/Shirin20/studentCode#readme",
+  "dependencies": {
+    "code-statistics": "^1.0.1",
+    "shelljs": "^0.8.5"
+  }
 }
