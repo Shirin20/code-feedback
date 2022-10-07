@@ -1,0 +1,26 @@
+{
+  "name": "studentcode",
+  "version": "1.0.0",
+  "description": "Creates code statistics reports for students projects",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0",
+    "test": "npx --node-options=--experimental-vm-modules jest || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shirin20/studentCode.git"
+  },
+  "author": "Shirin Meirkhan",
+  "license": "MIT",
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.5"
+  },
+  "bugs": {
+    "url": "https://github.com/Shirin20/studentCode/issues"
+  },
+  "homepage": "https://github.com/Shirin20/studentCode#readme"
+}
