@@ -1,32 +1,43 @@
 /* eslint-disable jsdoc/require-jsdoc */
 
-import { ProjectFilesReader } from 'code-statistics/src/ProjectFilesReader.js'
-import { ProjectCodeChecker } from 'code-statistics/src/ProjectCodeChecker.js'
-
 import readline from 'readline'
 import { UserActions } from './UserActions.js'
+// import { writeFile } from 'node:fs/promises'
+import fs from 'fs'
+import { resolve } from 'path'
 
-// const projectReader = new ProjectFilesReader()
 
 const userActions = new UserActions()
-// const projectFilesChecker = new ProjectCodeChecker()
+const dataSource = resolve(process.cwd(), 'data.text')
+
+async function writePersistentFeedback (feedbackArray) {
+  feedbackArray.shift()
+  const feedback = feedbackArray.join(' ')
+  const data = JSON.stringify(feedback, null, 4)
+  // return writeFile(dataSource, data)
+  return fs.appendFile(dataSource, `
+  ${data}`, function (err) {
+    if (err) throw err
+    console.log('Saved!')
+  })
+}
 
 function showMenu () {
   console.log(`
   ***************** Student project reports **********
   menu, help - show this menu
-  exit, quit - Exits Program
-  clone <gitHub url> -  To Clone a new project
+
+  clone <gitHub url> -  To clone a student project
+
+  report - report <project dir root path>
+
+  feedback <student name, project name, feedback text> - to write a feedback
+  Write the student name and the project name separated by ' , ' and then write the feedback 
+
   delete- <project dir name> To delete a project
-  report - report
+  
+  exit, quit - Exits Program
   `)
-}
-
-function exitProgram (code) {
-  code = code || 0
-
-  console.info('\nExiting with exit status: ' + code)
-  process.exit(code)
 }
 
 (async function () {
@@ -42,9 +53,6 @@ function exitProgram (code) {
   rl.on('line', async (input) => {
     input = input.trim()
     const lineArray = input.split(' ')
-    // let projectFiles = []
-    // let report = {}
-    // const projectFilesChecker = new ProjectCodeChecker()
 
     switch (lineArray[0]) {
       case 'exit':
@@ -59,9 +67,10 @@ function exitProgram (code) {
         await userActions.cloneProject(lineArray[1])
         break
       case 'report':
-        // projectFiles = await projectReader.getDirectoryFilesPaths(lineArray[1])
-        // report = await projectFilesChecker.countProjectLines(projectFiles)
-        console.log('reporting.....re')
+        console.log(await userActions.report(lineArray[1]))
+        break
+      case 'feedback':
+        writePersistentFeedback(lineArray)
         break
       case 'delete':
         await userActions.deleteStudentProject(lineArray[1])
@@ -73,3 +82,10 @@ function exitProgram (code) {
     rl.prompt()
   })
 })()
+
+function exitProgram (code) {
+  code = code || 0
+
+  console.info('\nExiting with exit status: ' + code)
+  process.exit(code)
+}
