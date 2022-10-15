@@ -15,17 +15,7 @@ export class ProgramActions {
     shell.exec(`git clone ${url}`)
   }
 
-  deleteStudentProject (dirNamePath) {
-    const directory = `students-projects/${dirNamePath}`
-    fs.rm(directory, { recursive: true }, err => {
-      if (err) {
-        throw err
-      }
-      console.log(`${directory} is deleted!`)
-    })
-  }
-
-  async report (projectRootPath) {
+  async getReport (projectRootPath) {
     const projectFilesArray = await projectReader.getDirectoryFilesPaths(projectRootPath)
     const reportObj = {
       projectLines: await projectFiles.countProjectLines(projectFilesArray),
@@ -36,15 +26,46 @@ export class ProgramActions {
     return reportObj
   }
 
-  async writePersistentFeedback (feedbackArray) {
-    const dataSource = resolve(process.cwd(), 'students-reports-feedback.text')
+  async writePersistentFeedbackToFile (feedbackArray) {
+    const reportFile = this.#specifyReportFile()
+    this.#deleteFeedbackWord(feedbackArray)
+    const feedback = this.#convertArrayToText(feedbackArray)
+    this.#writeFeedbackToFile(feedback, reportFile)
+  }
+
+  #specifyReportFile () {
+    const fileData = resolve(process.cwd(), 'students-reports-feedback.text')
+    return fileData
+  }
+
+  #deleteFeedbackWord (feedbackArray) {
     feedbackArray.shift()
-    const feedback = feedbackArray.join(' ')
-    const data = JSON.stringify(feedback, null, 4)
-    return fs.appendFile(dataSource, `
-    ${data}`, function (err) {
+  }
+
+  #convertArrayToText (feedbackArray) {
+    return feedbackArray.join(' ')
+  }
+
+  #writeFeedbackToFile (feedback, reportFile) {
+    const jsonFeedback = this.#convertStringToJson(feedback)
+    return fs.appendFile(reportFile, `
+    ${jsonFeedback}`, function (err) {
       if (err) throw err
       console.log('Saved!')
+    })
+  }
+
+  #convertStringToJson (feedback) {
+    return JSON.stringify(feedback, null, 4)
+  }
+
+  deleteStudentProject (dirNamePath) {
+    const directory = `students-projects/${dirNamePath}`
+    fs.rm(directory, { recursive: true }, err => {
+      if (err) {
+        throw err
+      }
+      console.log(`${directory} is deleted!`)
     })
   }
 }
