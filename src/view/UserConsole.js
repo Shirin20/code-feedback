@@ -9,10 +9,10 @@ export class UserConsole {
   
     clone <gitHub url> -  To clone a student project
   
-    report - report <project dir root path>
+    report <project dir root path> - to get code statistics (number of lines ..loops)
   
-    feedback <student name, project name, feedback text> - to write a feedback
-    Write the student name and the project name separated by ' , ' and then write the feedback 
+    feedback <student name, project name, feedback text> - to write a feedback to the student
+    Write the student name and the project name separated by a ' , ' and then write the feedback 
   
     delete- <project dir name> To delete a project
     
@@ -27,12 +27,5 @@ export class UserConsole {
     project for loops = ${reportObject.projectLinesForLoops}
     project projectsCharacters and whitespace = ${reportObject.projectsCharacters}
     `)
-  }
-
-  exitProgram (code) {
-    code = code || 0
-
-    console.info('\nExiting with exit status: ' + code)
-    process.exit(code)
   }
 }
