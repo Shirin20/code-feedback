@@ -5,8 +5,11 @@ import { resolve } from 'path'
 export class WriteToFile {
   async writePersistentFeedbackToFile (feedbackArray) {
     const reportFile = this.#specifyReportFile()
+
     this.#deleteFeedbackWord(feedbackArray)
+
     const feedback = this.#convertArrayToText(feedbackArray)
+
     this.#writeFeedbackToFile(feedback, reportFile)
   }
 
@@ -25,6 +28,7 @@ export class WriteToFile {
 
   #writeFeedbackToFile (feedback, reportFile) {
     const jsonFeedback = this.#convertStringToJson(feedback)
+
     return fs.appendFile(reportFile, `
      ${jsonFeedback}`, function (err) {
       if (err) throw err
