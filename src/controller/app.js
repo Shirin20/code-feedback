@@ -2,9 +2,11 @@
 
 import readline from 'readline'
 import { ProgramActions } from '../model/ProgramActions.js'
+import { GithubProject } from '../model/GithubProject.js'
 import { UserConsole } from '../view/UserConsole.js'
 
 const userActions = new ProgramActions()
+const studentProject = new GithubProject()
 const cli = new UserConsole()
 
 async function runProgram () {
@@ -34,7 +36,7 @@ async function runProgram () {
         cli.showMenu()
         break
       case 'clone':
-        await userActions.cloneProject(inputLineArray[1])
+        await studentProject.cloneProject(inputLineArray[1])
         break
       case 'report':
         reportObject = await userActions.getReport(inputLineArray[1])
@@ -44,7 +46,7 @@ async function runProgram () {
         userActions.writePersistentFeedbackToFile(inputLineArray)
         break
       case 'delete':
-        await userActions.deleteStudentProject(inputLineArray[1])
+        await studentProject.deleteStudentProject(inputLineArray[1])
         break
       default:
         cli.showMenu()
