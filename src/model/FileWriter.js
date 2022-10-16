@@ -2,7 +2,7 @@
 import fs from 'fs'
 import { resolve } from 'path'
 
-export class WriteToFile {
+export class FileWriter {
   async writePersistentFeedbackToFile (feedbackArray) {
     const reportFile = this.#specifyReportFile()
 

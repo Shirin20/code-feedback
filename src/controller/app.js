@@ -3,10 +3,12 @@
 import readline from 'readline'
 import { Reporter } from '../model/Reporter.js'
 import { GithubProject } from '../model/GithubProject.js'
+import { FileWriter } from '../model/FileWriter.js'
 import { UserConsole } from '../view/UserConsole.js'
 
 const codeReport = new Reporter()
 const studentProject = new GithubProject()
+const fileWriting = new FileWriter()
 const cli = new UserConsole()
 
 async function runProgram () {
@@ -43,7 +45,7 @@ async function runProgram () {
         cli.printReport(reportObject)
         break
       case 'feedback':
-        codeReport.writePersistentFeedbackToFile(inputLineArray)
+        fileWriting.writePersistentFeedbackToFile(inputLineArray)
         break
       case 'delete':
         await studentProject.deleteStudentProject(inputLineArray[1])
