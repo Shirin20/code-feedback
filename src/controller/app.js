@@ -1,11 +1,11 @@
 /* eslint-disable jsdoc/require-jsdoc */
 
 import readline from 'readline'
-import { ProgramActions } from '../model/ProgramActions.js'
+import { Reporter } from '../model/Reporter.js'
 import { GithubProject } from '../model/GithubProject.js'
 import { UserConsole } from '../view/UserConsole.js'
 
-const userActions = new ProgramActions()
+const codeReport = new Reporter()
 const studentProject = new GithubProject()
 const cli = new UserConsole()
 
@@ -36,14 +36,14 @@ async function runProgram () {
         cli.showMenu()
         break
       case 'clone':
-        await studentProject.cloneProject(inputLineArray[1])
+        await studentProject.cloneStudentProject(inputLineArray[1])
         break
       case 'report':
-        reportObject = await userActions.getReport(inputLineArray[1])
+        reportObject = await codeReport.getReport(inputLineArray[1])
         cli.printReport(reportObject)
         break
       case 'feedback':
-        userActions.writePersistentFeedbackToFile(inputLineArray)
+        codeReport.writePersistentFeedbackToFile(inputLineArray)
         break
       case 'delete':
         await studentProject.deleteStudentProject(inputLineArray[1])

@@ -1,16 +1,23 @@
 /* eslint-disable jsdoc/require-jsdoc */
 import shell from 'shelljs'
 import fs from 'fs'
+import { ErrorHandler } from './ErrorHandler.js'
+
+const errorChecker = new ErrorHandler()
 
 export class GithubProject {
-  cloneStudentProject (url) {
+  cloneStudentProject (githubUrl) {
+    errorChecker.handleGithubUrlError(githubUrl)
+
     const path = 'students-projects'
     shell.cd(path)
-    shell.exec(`git clone ${url}`)
+    shell.exec(`git clone ${githubUrl}`)
   }
 
-  deleteStudentProject (dirNamePath) {
-    const directory = `students-projects/${dirNamePath}`
+  deleteStudentProject (dirPath) {
+    errorChecker.handleDirPathError(dirPath)
+
+    const directory = `students-projects/${dirPath}`
     fs.rm(directory, { recursive: true }, err => {
       if (err) {
         throw err
