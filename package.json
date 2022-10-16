@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/Shirin20/studentCode#readme",
   "dependencies": {
-    "code-statistics": "^1.0.1",
+    "code-statistics": "^1.1.1",
     "nodemailer": "^6.8.0",
     "shelljs": "^0.8.5"
   }
