@@ -36,11 +36,15 @@ Förtydligande: Examinator kommer sätta betyg oberoende på vad ni anser.
 ## Beskrivning av min kod
 
 koden är dellat enligt mvc modellen
-Jag har 3 moduler
-- ProgramActions.js
-Den ger möjlighet att clona ner , ta bort projects, get code statistics , write feedback on a file
+Jag har 6 moduler
+- Reporter.js den produserar raporter på project kod
+- GithubProject.js  
+Den ger möjlighet att clona ner , ta bort projects  
+- FileWriter.js write feedback on a file
 - User console.js  
-Den prints the menue , statistics, and gets feedback from the user
+Den prints the menue , statistics, and gets feedback from the user  
+ErrorHandler.js  
+
 - app.js  
 Den jobber som coordinator och mellan the model and the view
 
@@ -49,15 +53,16 @@ Den jobber som coordinator och mellan the model and the view
 
 ## Hur jag testat
 
-programmet var testat genom hela utvecklings tiden med automatiska tester for två klasses (ProjectCodeChecker.js och FileCodeChecker.js som använder andra klassers metoder (ErrorHandlar.js , ProjectFilesReader.js) genom att använda jest ramverk.)
+Jag har utfört manuella tester 
 ​
 
 ### Testfall
 
-![FileCodeChecker](test/img/FileCodeCheckerTests.png "FileCodeChecker")
-​
-![ProjectCodeChecker](test/img/ProjectCodeCheckerTests.png "ProjectCodeChecker")
-​
+​[test fall](test/manuel-tester.md)  
+
+## Test report  
+
+​[test fall](test/test-report.md)
 
 ## Kodkvalitetskrav
 
