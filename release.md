@@ -72,14 +72,15 @@ Jag har utfört manuella tester
 
 ## Laborationsreflektion
 
-Efter att jag läste en bra del av clean code boken så märkte jag att jag förstår bättre vad menas med good programming och att  koden räknas inte bra när den bara fungerar och gör vad den måste göra men det handlar om mycket andra saker bland annat att den måste se ut på ett sätt som gör att den är lätt att läsa och skriven på ett sätt så att andra kan förstå den och även att det blir lättare att utveckla , återanvända den, samt att den blir skalbart
-I lab2 så försökte jag följa dem principer som clean forfatteren tar up i sin bok och så jobbade Jag på att refaktorera min kod i lab1 och skriva min kod till lab2 appen.
+Efter att jag läste en bra del av clean code boken så märkte jag att jag förstår bättre vad menas med good programming och att  koden räknas inte bra när den bara fungerar och gör vad den måste göra, men det handlar mer om andra saker bland annat att den måste se ut på ett sätt som gör att den är lätt läst, och skriven på ett sätt som gör andra förstå den, och även att koden blir lättare att utveckla, återanvända, samt att den blir skalbart   
+
+I lab2, försökte jag följa dem principer som forfatteren tog up i sin bok, och refaktorerade min kod som jag hade lab1 och skreva min kod i lab2 appen.
 Här kommer några exempel   
 <br>
 ![meaningful names](img/meaningful-names.png "meaningful names")  
 <br>
-I refactoring min kod så har jag ändrat många veriable and methods namn som countFileCodeCharAndWhiteSpaces() hette countFileCodeChar() i början men andrat till and whitespaces så att den viser att den räknar alla charechters tillsammans med blanksteg
-Och den är en verb fras för metoders namn ska vara verb fras enligt boken
+under refactoring av min kod så har jag ändrat många veriabl metod namn,(countFileCodeChar() ändrat till countFileCodeCharAndWhiteSpaces() ) som tyder på att  räknar alla charechters tillsammans med blanksteg
+Och den är en verb fras, metod namn ska vara verb fras enligt boken
 
 ![metod before](img/functions-before.png "functions")
 <br>
@@ -93,13 +94,13 @@ Huvud metoden har nu en level av abstraktion
 
 ![comments ](img/comments.png "comments")  
 <br>
-Enligt boken Kommentarer kompenserar inte för dålig kod, så refaktorering resulterade i att många kommentarer raderades eftersom koden kunde uttrycka sig på ett sätt som den inte behöver en kommentar, men samtidigt så fanns det en del metoder som jag behovde kommentera som det var nämnd i boken att Det är ibland användbart att ge grundläggande information med en kommentar.  
+Enligt boken Kommentarer kompenserar inte för dålig kod, så refaktorering resulterade i att många kommentarer raderades eftersom koden kunde uttrycka sig på ett sätt som den inte behöver en kommentar, men samtidigt så fanns det en del metoder som jag behovde kommentera.  Det var nämnd i boken att Det är ibland användbart att ge grundläggande information med en kommentar.  
 <br>
 
 ![classes ](img/classes.png "classes")
 <br>
 
-I båda lab 1 och lab två har jag delat koden i flera klasser och i varje klass har jag skapat metoder som hör till samma koncept vilkengör att klassen gör bara en grej och att dem är små, men samtidigt när jag brytat stora metoder in till små metoder så behövde jag dela på en klass till två klasser, klassen heter FileCodeChecker.js och så skapade jag en ny klass  FileCommentsEraser.js och flyttade alla metoder som gör samma sak till den
+I båda lab 1 och lab två har jag delat koden i flera klasser och i varje klass har jag skapat metoder som hör till samma koncept vilken gör att klassen gör bara en grej och att dem är små, men samtidigt när jag brytat stora metoder in till små metoder så behövde jag dela på en klass till två klasser, klassen heter FileCodeChecker.js och så skapade jag en ny klass  FileCommentsEraser.js och flyttade alla metoder som gör samma sak till den
 <br>
 
 ![formatting ](img/formatting.png "formatting")   
@@ -108,8 +109,7 @@ När jag skrivit koden och restraktuert den så hade jag koll på vertikal forma
 <br>
 
 ![error handling ](img/error-handling.png "error handling")   
-Error handling kapital rekomenderar att man använder undantag istället för return satster och att varje undantag som man kastar bör ge tillräckligt med sammanhang för att bestämma källan och platsen för ett fel. och det visas tydlig i min kod exemple. samtidigt behöver jag utveckla vidare på min fel hantering och använda try catch satser var det passar så att programmet ska va i en konsekvent tillstånd, oavsett vad som händer i (try).till exemple att använda try-catch-sats var det finns kod som ger
-undantag som hjälper att definiera vad användaren av den koden ska förvänta sig, oavsett vad
+Error handling kapital rekomenderar att man använder undantag istället för return satster, och att varje undantag som man kastar bör ge tillräckligt med sammanhang för att bestämma källan och platsen för ett fel. och det visas tydlig i min kod exemple. samtidigt behöver jag utveckla vidare på min fel hantering och använda try catch satser, var det passar, så att programmet ska va i en konsekvent tillstånd, oavsett vad som händer i (try).till exemple att använda try-catch-sats var det finns kod som ger undantag, som hjälper att definiera vad användaren av den koden ska förvänta sig, oavsett vad
 går fel med koden som körs i försöket
 
 ![law of demeter ](img/law-of-demeter.png "law of demeter")   

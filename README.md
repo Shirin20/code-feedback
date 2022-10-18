@@ -1,7 +1,7 @@
 # Code-feedback
-This application in its first release is a simple application that is directed to teachers of computer science and gives the ability to;  
+This application in its first release is a simple application that is directed to teachers of computer science who wants to evaluate students projects thats are written  in java or javascript
 
-## Usage 
+## Features  
 + Get report on the project code for java and javascript which contains:  
   + Number of project lines
   + Number of control statements
@@ -11,13 +11,13 @@ This application in its first release is a simple application that is directed t
 + Delete a downloaded project.
 
 # How to use the app 
-Writ in the console command  
+Writ in the console the following command  
   + npm start  
 
 ![Menu](img/menu.png "Project output")  
 
 Choose an option  
- for example   
+ for example:    
  clone github.com/project-example   
  The project will be downloaded in the students-projects folder  
 
