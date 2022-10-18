@@ -108,7 +108,9 @@ När jag skrivit koden och restraktuert den så hade jag koll på vertikal forma
 <br>
 
 ![error handling ](img/error-handling.png "error handling")   
-Erro handling kapital rekomenderar att man använder undantag istället för return satster och att varje undantag som man kastar bör ge tillräckligt med sammanhang för att bestämma källan och platsen för ett fel. och det visas tydlig i min kod exemple.
+Error handling kapital rekomenderar att man använder undantag istället för return satster och att varje undantag som man kastar bör ge tillräckligt med sammanhang för att bestämma källan och platsen för ett fel. och det visas tydlig i min kod exemple. samtidigt behöver jag utveckla vidare på min fel hantering och använda try catch satser var det passar så att programmet ska va i en konsekvent tillstånd, oavsett vad som händer i (try).till exemple att använda try-catch-sats var det finns kod som ger
+undantag som hjälper att definiera vad användaren av den koden ska förvänta sig, oavsett vad
+går fel med koden som körs i försöket
 
 ![law of demeter ](img/law-of-demeter.png "law of demeter")   
 ![law of demeter ](img/law-of-demeter-1.png "law of demeter")   
@@ -117,5 +119,12 @@ Erro handling kapital rekomenderar att man använder undantag istället för ret
 Demeterlagen säger att en modul inte bör
 känna till insidan av de föremål som den manipulerar. objekt
 dölja sina data och avslöja operationer. Det betyder att ett föremål inte ska exponera sitt  intern struktur genom accessorer eftersom att göra det är att avslöja, snarare än att dölja, dess inre struktur. Metoden ska inte anropa metoder på objekt som returneras av någon av tillåtna funktioner. Med andra ord, prata med vänner, inte med främlingar  
-count projects countProjectLines(dirFilesPaths) anroper countFileLines(fileCode) som i sin tur anroper handleFileError(fileCode)
 
+I Kapital 8 beskriver författaren hur det kan bli problemtisk när man använder sig av en tredje part kod genom hela systemet vilken betyder en stor fixing arbete om denna tredje kod ändras eller att själva systemet ändras. Och när jag tänkar på min program och modulen som används av programmet, så märkar jag att jag måste fundera över, och jobba på att isolera program koden fron modulens kod och incapsla modulens kod samt höja abstrktions
+genom att skapa en klass kanske och stoppa modulen i den. Jag gör en funktion för varje funktion.
+
+![sytem ](img/system.png "system")  
+I min lab2 program använde jag MVC modellen för separation of concerns
+kontrollen tar ansvar för att bygga de nödvändiga objekten för systemet och skickar dem sedan till applikationen, som helt enkelt använder dem. Och modellen har ingen dependency på kontrollen, den är  frikopplad från detaljer som det är nämnd i boken ,jag har delat och placerat allt som har att göra med app logiken i modellen vilken underlättar böda skalnings arbete och utvecklingsarbete   men på andra sidan så måste jag tänka genom app.js och UserConsole.js för de har gömda beroende till exempel del koden som ger användaren möjligheten att mata in sin val av menyn ligger i kontrollen och den bör flyttas till user console.
+
+Innan jag läste boken hade jag alltid denna tanken att jag behöver öva och paktisera mycket för att kunna skriva renare kode, skriva kod som blir skalbart , lät och förtå , men jag hade inga tydliga regler och grunder för att hjälpa mig att nå målet. boken hjälpte mig identifer broblem som fanns i koden och gav mig lösningar och bästa praxis, höja abstraktions nivå, välja ut bra namn, bygga bra enkapslade klasser, skriva små funktioner ...och så vidare, den ändrade min tanke om kod, hur att skriva kod.
