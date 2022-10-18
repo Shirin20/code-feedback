@@ -18,8 +18,8 @@ Writ in the console command
 
 Choose an option  
  for example   
- clone https://github.com/theStudent-project-url  
- the project will be downloaded in the students-projects folder  
+ clone github.com/project-example   
+ The project will be downloaded in the students-projects folder  
 
 
 # Developers:

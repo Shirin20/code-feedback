@@ -1,4 +1,4 @@
-# Mall för inlämning laboration 1, 1dv610
+# laboration 2, 1dv610
 
 ​
 
@@ -20,7 +20,7 @@
   - [x] Kodkvaliterskraven är ifyllda
   - [x] Reflektion är skriven utifrån bokens kapitel
 - [ ] Jag eftersträvar med denna inlämning högre betyg (C-B) och anser mig uppfylla alla extra krav för detta.
-  - [ ] Samtliga testfall är skrivna
+  - [x] Samtliga testfall är skrivna
   - [] Testfall är automatiserade
   - [x] Det finns en tydlig beskrivning i hur modulen skall användas (i git)
   - [x] Kodkvalitetskraven är varierade

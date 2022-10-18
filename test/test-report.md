@@ -1,5 +1,5 @@
 # Test Report
-Document the results of your final system test below. You find instructions on the course homepage.
+Documentation of the final results of final version of the system.
 
 |Case | Result | Note |
 |------|--------|------|
