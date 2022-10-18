@@ -1,4 +1,4 @@
-# Student-projects-reports
+# Code-feedback
 This application in its first release is a simple application that is directed to teachers of computer science and gives the ability to;  
 
 Usage:  
@@ -23,7 +23,7 @@ Choose an option
 
  # Contributing
 
-1. [Fork it](https://github.com/Shirin20/student-projects-reports)
+1. [Fork it](https://github.com/Shirin20/code-feedback)
 2. Install dependencies (`npm install`)
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Added some feature'`)

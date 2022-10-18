@@ -8,10 +8,11 @@ const projectReader = new ProjectFilesReader()
 const errorChecker = new ErrorHandler()
 
 export class Reporter {
-  async getReport (projectRootPath) {
-    errorChecker.handleProjectRootPathError(projectRootPath)
+  async getReport (projectPath) {
+    const studentProjectPath = `students-projects/${projectPath}`
+    errorChecker.handleProjectRootPathError(studentProjectPath)
 
-    const projectFilesArray = await projectReader.getDirectoryFilesPaths(projectRootPath)
+    const projectFilesArray = await projectReader.getDirectoryFilesPaths(studentProjectPath)
 
     const reportObj = {
       projectLines: await projectFiles.countProjectLines(projectFilesArray),
