@@ -32,7 +32,10 @@ Choose an option
 4. Commit your changes (`git commit -am 'Added some feature'`)
 5. the app is tested with [manuel tests](./test/manuel-tester.md)
 6. Push to the branch (`git push origin my-new-feature`)
+   
 
+# Class diagram  
+![Diagram](img/class-diagram.png)
 
 # requirements to develop
  + Send feedback to a student;   
